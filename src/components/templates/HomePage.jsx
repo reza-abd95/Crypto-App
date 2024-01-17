@@ -5,9 +5,12 @@ import { getListCoin } from "../../services/cryptoApi";
 function HomePage() {
   const [coins, setCoins] = useState([]);
   useEffect(() => {
-    fetch(getListCoin())
-      .then((res) => res.json())
-      .then((json) => setCoins(json));
+    const getData = async () => {
+      const res = await fetch(getListCoin());
+      const json = await res.json();
+      setCoins(json);
+    };
+    getData();
   }, []);
 
   return (
