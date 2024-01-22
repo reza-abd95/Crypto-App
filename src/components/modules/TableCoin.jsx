@@ -15,13 +15,13 @@ function TableCoin({ coins, loading }) {
       ) : (
         <table className=" w-full border-collapse">
           <thead className="border-b-2 border-solid border-white">
-            <tr className=" text-xl text-left">
-              <th className=" py-2">Coin</th>
-              <th className=" py-2">Name</th>
-              <th className=" py-2">Price</th>
-              <th className=" py-2">24h</th>
-              <th className=" py-2">Total Volume</th>
-              <th className=" py-2"></th>
+            <tr className=" [&>th]:py-2 text-xl text-left ">
+              <th>Coin</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>24h</th>
+              <th>Total Volume</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>

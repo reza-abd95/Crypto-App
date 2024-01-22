@@ -21,8 +21,8 @@ function HomePage() {
 
   return (
     <div className="w-full">
-      <Pagination page={page} setPage={setPage} />
       <TableCoin coins={coins} loading={isLoading} />
+      <Pagination page={page} setPage={setPage} />
     </div>
   );
 }
