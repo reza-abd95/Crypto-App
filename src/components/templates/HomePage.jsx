@@ -10,13 +10,13 @@ function HomePage() {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch(getListCoin());
+      const res = await fetch(getListCoin(page));
       const json = await res.json();
       setCoins(json);
       setIsLoading(false);
     };
     getData();
-  }, []);
+  }, [page]);
 
   return (
     <div className="w-full">
