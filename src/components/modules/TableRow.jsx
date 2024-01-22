@@ -13,10 +13,10 @@ function TableRow({
   },
 }) {
   return (
-    <tr>
+    <tr className=" h-20 border-b-2 border-solid border-[#22262e] font-semibold text-lg">
       <td>
-        <div className="flex">
-          <img src={image} />
+        <div className="flex items-center cursor-pointer text-[#9fa6b7] ">
+          <img className=" h-6 w-6 mr-2 " src={image} />
           <span>{symbol.toUpperCase()}</span>
         </div>
       </td>
@@ -25,7 +25,7 @@ function TableRow({
       <td
         className={`${
           price_change_percentage_24h > 0 ? "text-green-500" : "text-red-600"
-        }`}
+        } px-2`}
       >
         {price_change_percentage_24h.toFixed(2)}%
       </td>

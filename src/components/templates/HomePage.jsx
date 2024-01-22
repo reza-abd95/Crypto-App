@@ -16,7 +16,7 @@ function HomePage() {
   }, []);
 
   return (
-    <div>
+    <div className="w-full">
       <TableCoin coins={coins} loading={isLoading} />
     </div>
   );

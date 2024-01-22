@@ -4,24 +4,24 @@ import { RotatingLines } from "react-loader-spinner";
 
 function TableCoin({ coins, loading }) {
   return (
-    <div>
+    <div className=" w-full flex justify-center mt-12 mx-0 mb-24 min-h-[1000px]">
       {loading ? (
         <RotatingLines
           height="96"
           width="96"
           strokeColor="red"
-          strokeWidth="5"
+          strokeWidth="2"
         />
       ) : (
-        <table>
-          <thead>
-            <tr>
-              <th>Coin</th>
-              <th>Name</th>
-              <th>Price</th>
-              <th>24h</th>
-              <th>Total Volume</th>
-              <th></th>
+        <table className=" w-full border-collapse">
+          <thead className="border-b-2 border-solid border-white">
+            <tr className=" text-xl text-left">
+              <th className=" py-2">Coin</th>
+              <th className=" py-2">Name</th>
+              <th className=" py-2">Price</th>
+              <th className=" py-2">24h</th>
+              <th className=" py-2">Total Volume</th>
+              <th className=" py-2"></th>
             </tr>
           </thead>
           <tbody>
