@@ -14,23 +14,33 @@ function Pagination({ page, setPage }) {
     setPage((page) => page + 1);
   };
   return (
-    <div className="flex justify-center ">
-      <button onClick={previousHandler} className=" bg-red-300">
+    <div className="  w-96 flex justify-between items-center mx-auto mb-24 [&>p]:rounded-md [&>p]:border-solid [&>p]:border-2 [&>p]:border-red-500 [&>p]:text-center  [&>p]:w-7">
+      <button
+        onClick={previousHandler}
+        className={`${
+          page == 1 ? "opacity-30 cursor-auto" : null
+        } bg-red-500 text-white border-none py-1 px-2 rounded text-base cursor-pointer `}
+      >
         Previous
       </button>
-      <p className={page == 1 ? "text-red-500" : " text-inherit"}>1</p>
-      <p className={page == 2 ? "text-red-500" : " text-inherit"}>2</p>
+      <p className={page == 1 ? "bg-red-500" : null}>1</p>
+      <p className={page == 2 ? "bg-red-500" : null}>2</p>
       {page > 2 && page < 9 && (
         <>
           <span>...</span>
-          <p>{page}</p>
+          <p className={"bg-red-500"}>{page}</p>
         </>
       )}
       <span>...</span>
-      <p>9</p>
-      <p>10</p>
+      <p className={page == 9 ? "bg-red-500" : null}>9</p>
+      <p className={page == 10 ? "bg-red-500" : null}>10</p>
 
-      <button onClick={nextHandler} className=" bg-red-300">
+      <button
+        onClick={nextHandler}
+        className={`${
+          page == 10 ? "opacity-30 cursor-auto" : null
+        } bg-red-500 text-white border-none py-1 px-2 rounded text-base cursor-pointer `}
+      >
         Next
       </button>
     </div>
