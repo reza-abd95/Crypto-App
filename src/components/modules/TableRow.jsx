@@ -11,7 +11,19 @@ function TableRow({
     price_change_percentage_24h,
     total_volume,
   },
+  currency,
 }) {
+  const currencySymbol = () => {
+    switch (currency) {
+      case "usd":
+        return "$ ";
+      case "eur":
+        return "€ ";
+      case "jpy":
+        return "¥ ";
+    }
+  };
+
   return (
     <tr className=" h-20 border-b-2 border-solid border-[#22262e] font-semibold text-lg">
       <td>
@@ -21,7 +33,10 @@ function TableRow({
         </div>
       </td>
       <td>{name}</td>
-      <td>${current_price.toLocaleString()}</td>
+      <td>
+        {currencySymbol(currency)}
+        {current_price.toLocaleString()}
+      </td>
       <td
         className={`${
           price_change_percentage_24h > 0 ? "text-green-500" : "text-red-600"
