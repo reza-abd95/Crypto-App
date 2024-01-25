@@ -12,6 +12,7 @@ function TableRow({
     total_volume,
   },
   currency,
+  setChart,
 }) {
   const currencySymbol = () => {
     switch (currency) {
@@ -23,11 +24,16 @@ function TableRow({
         return "¥ ";
     }
   };
-
+  const showHandler = () => {
+    setChart("a");
+  };
   return (
     <tr className=" h-20 border-b-2 border-solid border-[#22262e] font-semibold text-lg">
       <td>
-        <div className="flex items-center cursor-pointer text-[#9fa6b7] ">
+        <div
+          className="flex items-center cursor-pointer text-[#9fa6b7] "
+          onClick={showHandler}
+        >
           <img className=" h-6 w-6 mr-2 " src={image} />
           <span>{symbol.toUpperCase()}</span>
         </div>
