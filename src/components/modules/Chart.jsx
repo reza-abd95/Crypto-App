@@ -1,6 +1,7 @@
 import React from "react";
 
 function Chart({ chart, setChart }) {
+  console.log(chart);
   return (
     <div className=" fixed  w-full h-full top-0 left-0 backdrop-blur-[3px]	">
       <span

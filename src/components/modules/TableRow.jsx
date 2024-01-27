@@ -1,9 +1,11 @@
 import React from "react";
 import chartup from "../../assets/chart-up.svg";
 import chartdown from "../../assets/chart-down.svg";
+import { marketChart } from "../../services/cryptoApi";
 
 function TableRow({
   coin: {
+    id,
     name,
     image,
     symbol,
@@ -24,8 +26,14 @@ function TableRow({
         return "¥ ";
     }
   };
-  const showHandler = () => {
-    setChart("a");
+  const showHandler = async () => {
+    try {
+      const res = await fetch(marketChart(id));
+      const json = await res.json();
+      setChart(json);
+    } catch (error) {
+      setChart(null);
+    }
   };
   return (
     <tr className=" h-20 border-b-2 border-solid border-[#22262e] font-semibold text-lg">
