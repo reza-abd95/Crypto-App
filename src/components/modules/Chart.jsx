@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import { convertData } from "../../helpers/convertData";
 
 function Chart({ chart, setChart }) {
-  console.log(chart);
+  const [type, setType] = useState("prices");
+  console.log(convertData(chart, type));
+
   return (
     <div className=" fixed  w-full h-full top-0 left-0 backdrop-blur-[3px]	">
       <span
@@ -11,8 +14,7 @@ function Chart({ chart, setChart }) {
         X
       </span>
       <div className=" w-[800px] m-auto p-5 mt-12 bg-[#18181ce6] border-solid border-2 border-red-500 rounded-3xl">
-        <div>hi</div>
-        <div>hi</div>
+        <div className=" w-[760px] h-[300px]"></div>
       </div>
     </div>
   );
