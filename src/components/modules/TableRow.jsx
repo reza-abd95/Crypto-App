@@ -3,8 +3,8 @@ import chartup from "../../assets/chart-up.svg";
 import chartdown from "../../assets/chart-down.svg";
 import { marketChart } from "../../services/cryptoApi";
 
-function TableRow({
-  coin: {
+function TableRow({ coin, currency, setChart }) {
+  const {
     id,
     name,
     image,
@@ -12,10 +12,8 @@ function TableRow({
     current_price,
     price_change_percentage_24h,
     total_volume,
-  },
-  currency,
-  setChart,
-}) {
+  } = coin;
+
   const currencySymbol = () => {
     switch (currency) {
       case "usd":
@@ -30,7 +28,7 @@ function TableRow({
     try {
       const res = await fetch(marketChart(id));
       const json = await res.json();
-      setChart(json);
+      setChart({ ...json, coin: coin });
     } catch (error) {
       setChart(null);
     }

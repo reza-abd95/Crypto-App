@@ -14,6 +14,7 @@ import {
 function Chart({ chart, setChart }) {
   const [type, setType] = useState("prices");
   const data = convertData(chart, type);
+  console.log(chart);
 
   return (
     <div className=" fixed  w-full h-full top-0 left-0 backdrop-blur-[3px]	">
