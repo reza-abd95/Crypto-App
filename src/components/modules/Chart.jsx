@@ -67,6 +67,20 @@ function Chart({ chart, setChart }) {
             Total Volumes
           </button>
         </div>
+        <div>
+          <div>
+            <p>Prices: </p>
+            <span>${chart.coin.current_price}</span>
+          </div>
+          <div>
+            <p>ATH: </p>
+            <span>${chart.coin.ath}</span>
+          </div>
+          <div>
+            <p>Market Cap: </p>
+            <span>${chart.coin.market_cap}</span>
+          </div>
+        </div>
       </div>
     </div>
   );
