@@ -25,6 +25,14 @@ function Chart({ chart, setChart }) {
         X
       </span>
       <div className=" w-[800px] m-auto p-5 mt-12 bg-[#18181ce6] border-solid border-2 border-[#404042] rounded-3xl">
+        <div className="flex items-center mt-0 mx-3 mb-8">
+          <img
+            src={chart.coin.image}
+            alt={chart.coin.name}
+            className="w-10 h-10 mr-5"
+          />
+          <p className="text-2xl font-bold">{chart.coin.name}</p>
+        </div>
         <div className=" w-[760px] h-[300px]">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
@@ -51,6 +59,13 @@ function Chart({ chart, setChart }) {
               <Legend />
             </LineChart>
           </ResponsiveContainer>
+        </div>
+        <div>
+          <button onClick={() => setType("market_caps")}>Market</button>
+          <button onClick={() => setType("prices")}>Prices</button>
+          <button onClick={() => setType("total_volumes")}>
+            Total Volumes
+          </button>
         </div>
       </div>
     </div>
