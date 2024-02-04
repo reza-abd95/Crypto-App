@@ -16,6 +16,13 @@ function Chart({ chart, setChart }) {
   const data = convertData(chart, type);
   console.log(chart);
 
+  const typeHandler = (event) => {
+    if (event.target.tagName === "BUTTON") {
+      const type = event.target.innerText.toLowerCase().replace(" ", "_");
+      setType(type);
+    }
+  };
+
   return (
     <div className=" fixed  w-full h-full top-0 left-0 backdrop-blur-[3px]	">
       <span
@@ -60,14 +67,29 @@ function Chart({ chart, setChart }) {
             </LineChart>
           </ResponsiveContainer>
         </div>
-        <div>
-          <button onClick={() => setType("market_caps")}>Market</button>
-          <button onClick={() => setType("prices")}>Prices</button>
-          <button onClick={() => setType("total_volumes")}>
+        <div
+          onClick={typeHandler}
+          className="mt-8 [&>button]:mx-3 [&>button]:my-5 [&>button]:border-2  [&>button]:border-solid [&>button]:border-red-500 [&>button]:text-base [&>button]:px-2 [&>button]:py-1 [&>button]:rounded [&>button]:cursor-pointer"
+        >
+          <button
+            className={type === "market_caps" ? "bg-red-500" : "bg-[#18181cdb]"}
+          >
+            Market Caps
+          </button>
+          <button
+            className={type === "prices" ? "bg-red-500" : "bg-[#18181cdb]"}
+          >
+            Prices
+          </button>
+          <button
+            className={
+              type === "total_volumes" ? "bg-red-500" : "bg-[#18181cdb]"
+            }
+          >
             Total Volumes
           </button>
         </div>
-        <div>
+        <div className="flex justify-between mt-7 mx-5 text-lg [&>div]:flex [&>div>p]:mr-2  [&>div>p]:font-bold ">
           <div>
             <p>Prices: </p>
             <span>${chart.coin.current_price}</span>
